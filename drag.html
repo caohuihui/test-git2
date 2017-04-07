@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#box{position: absolute;width: 200px;height: 200px;background: red;}
+	</style>
+</head>
+<body>
+	<div id="box"></div>
+	<script>
+		//第一步，首先把面向过程的拖拽回顾一下
+		/*window.onload = function (){
+    // 获取元素和初始值
+    var oBox = document.getElementById('box'),
+        disX = 0, disY = 0;
+
+    // 容器鼠标按下事件
+    oBox.onmousedown = function (e){
+        var e = e || window.event;
+        disX = e.clientX - this.offsetLeft;
+        disY = e.clientY - this.offsetTop;
+
+        document.onmousemove = function (e){
+            var e = e || window.event;
+            oBox.style.left = (e.clientX - disX) + 'px';
+            oBox.style.top = (e.clientY - disY) + 'px';
+        };
+
+        document.onmouseup = function (){
+            document.onmousemove = null;
+            document.onmouseup = null;
+        };
+
+        return false;
+    };
+};*/
+
+	//第二步，把面向过程改写为面向对象
+	window.onload = function (){
+    var drag = new Drag('box');
+
+    drag.init();
+};
+
+// 构造函数Drag
+function Drag(id){
+    this.obj = document.getElementById(id);
+    this.disX = 0;
+    this.disY = 0;
+}
+
+Drag.prototype.init = function (){
+    // this指针
+    var me = this;
+
+    this.obj.onmousedown = function (e){
+        var e = e || event;
+        me.mouseDown(e);
+
+        // 阻止默认事件
+        return false;
+    };
+};
+
+Drag.prototype.mouseDown = function (e){
+    // this指针
+    var me = this;
+    this.disX = e.clientX - this.obj.offsetLeft;
+    this.disY = e.clientY - this.obj.offsetTop;
+
+    document.onmousemove = function (e){
+        var e = e || window.event;
+
+        me.mouseMove(e);
+    };  
+
+    document.onmouseup = function (){
+        me.mouseUp();
+    }
+};
+
+Drag.prototype.mouseMove = function (e){
+    this.obj.style.left = (e.clientX - this.disX) + 'px';
+    this.obj.style.top = (e.clientY - this.disY) + 'px';
+};
+
+Drag.prototype.mouseUp = function (){
+    document.onmousemove = null;
+    document.onmouseup = null;
+};
+	</script>
+
+	<!-- 当mousedown时记下鼠标点击位置离拖拽容器左边沿的距离和上边沿的距离；mousemove时通过定位拖拽容器的style.left/style.top，使拖拽容器进行移动，定位到哪里则由刚刚的tmpX/tmpY和当前鼠标所在位置计算得出；mouseup时，结束移动。 -->
+</body>
+</html>	
