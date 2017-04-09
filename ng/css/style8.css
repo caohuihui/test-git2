@@ -1,0 +1,30 @@
+*{
+	margin:0;
+	padding:0;
+}
+table{
+	width:800px;
+	height: auto;
+	margin: 30px auto;
+	border:1px solid #ccc;
+	border-collapse: collapse;
+}
+table tr{
+	height: 50px;
+}
+table tr td{
+	border:1px solid #ccc;
+	text-align: center;
+	position: relative;
+}
+table th{
+	color:#00f;
+	border:1px solid #ccc;
+	text-align: center;
+}
+table tr td span{
+	position: absolute;
+	right:0;
+	bottom:0;
+	color:#ccc;
+}

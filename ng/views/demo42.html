@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .align-top {
+            vertical-align: top
+        }
+        
+        a:hover {
+            text-decoration: none;
+        }
+        
+        .tag-btn {
+            margin: 5px 10px;
+            background: #f36;
+            color: #fff;
+        }
+    </style>
+    <link rel="stylesheet" href="../../../../node_modules/bootstrap/dist/css/bootstrap.min.css">
+</head>
+
+<body ng-controller="myCtrl">
+    <div class="jumbotron">
+        <p>
+            <a class="btn btn-lg tag-btn ng-class:getRandomBgColor();" ng-href="javascript:;;" ng-repeat="v in tagList" ng-bind="v.tag"></a>
+        </p>
+    </div>
+    <script src="../../../../node_modules/angular/angular.min.js"></script>
+    <script>
+        var myApp = angular.module('myApp', []);
+        myApp.controller('myCtrl', myCtrl);
+        myCtrl.$inject = ['$scope'];
+
+        function myCtrl($scope) {
+            $scope.tagList = [
+                {
+                    tag: '404公益活动',
+                    url: '../../baby'
+                },
+                {
+                    tag: '电影票房',
+                    url: '../../movie/index.html'
+                },
+                {
+                    tag: 'limitTo分页效果',
+                    url: 'app-pagination.html'
+                },
+                {
+                    tag: '定时器',
+                    url: 'app-timer.html'
+                },
+                {
+                    tag: '表达式',
+                    url: 'app-expression.html'
+                },
+                {
+                    tag: '日期格式化',
+                    url: 'app-date-format.html'
+                },
+                {
+                    tag: '表单验证',
+                    url: 'app-form.html'
+                },
+                {
+                    tag: 'Tab特效',
+                    url: 'app-tabs.html'
+                },
+                {
+                    tag: '$on、$emit和$broadcast',
+                    url: 'app-broadcast.html'
+                },
+                {
+                    tag: 'TAB控制',
+                    url: 'app-tab.html'
+                },
+                {
+                    tag: '价值万元免费书籍',
+                    url: '../books'
+                },
+                {
+                    tag: 'angular.forEach',
+                    url: '../api/each.html'
+                },
+                {
+                    tag: '数据循环',
+                    url: '../tutorial/ng-repeat.html'
+                },
+                {
+                    tag: '数据嵌套循环',
+                    url: '../tutorial/ng-nested-repeat.html'
+                },
+                {
+                    tag: 'Google镜像',
+                    url: '../../tools/google.html'
+                },
+                {
+                    tag: 'Tools工具箱',
+                    url: '../../tools'
+                },
+                {
+                    tag: 'url编码解码',
+                    url: '../../tools/url.html'
+                }
+    ];
+
+            $scope.getRandomBgColor = function () {
+                var btnColors = ['btn-primary', 'btn-success', 'btn-info', 'btn-warning', 'btn-danger'];
+                var random = Math.floor(Math.random() * (btnColors.length)) + 0;
+                return btnColors[random];
+            };
+
+        }
+    </script>
+</body>
+
+</html>

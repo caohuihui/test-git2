@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .contain {
+            display: none;
+        }
+        
+        li {
+            list-style: none;
+            float: left;
+            text-decoration: none;
+        }
+        
+        li>a {
+            font-size: 14px;
+            width: 102px;
+            display: block;
+            text-align: center;
+            text-decoration: none;
+            margin: 0 2px 0 4px;
+        }
+        
+        li>a:hover {
+            font-weight: 700;
+            background-position: -3px -144px;
+        }
+        .contain{
+            border: 1px solid #ccc;
+            position: absolute;
+            top:40px;
+            left:20%;
+        }
+        .contain>a{
+           display: inline-block;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li>
+            <a href="#">站长之家</a>
+
+        </li>
+
+        <li>
+            <a href="#">行业资讯</a>
+            <div class="contain">
+                <a href="javascript:;">行业资讯</a>|
+                <a href="javascript:;">收购融资</a>|
+                <a href="javascript:;">门户动态</a>|
+                <a href="javascript:;">搜索引擎</a>|
+                <a href="javascript:;">网络游戏</a>|
+                <a href="javascript:;">电子商务</a>
+
+            </div>
+
+        </li>
+        <li>
+            <a href="#">站长在线</a>
+            <div class="contain">
+                <a href="javascript:;">站长在线</a>|
+                <a href="javascript:;">收购融资</a>|
+                <a href="javascript:;">门户动态</a>|
+                <a href="javascript:;">搜索引擎</a>|
+                <a href="javascript:;">网络游戏</a>|
+                <a href="javascript:;">电子商务</a>|
+                <a href="javascript:;">广告传媒</a>|
+                <a href="javascript:;">厂商开发</a>
+
+            </div>
+
+        </li>
+        <li>
+            <a href="#">网站运营</a>
+            <div class="contain">
+                <a href="javascript:;">网站运营</a>|
+                <a href="javascript:;">收购融资</a>|
+                <a href="javascript:;">门户动态</a>|
+                <a href="javascript:;">搜索引擎</a>|
+                <a href="javascript:;">网络游戏</a>|
+                <a href="javascript:;">电子商务</a>|
+                <a href="javascript:;">广告传媒</a>|
+                <a href="javascript:;">厂商开发</a>
+
+            </div>
+
+        </li>
+        <li>
+            <a href="#">设计在线</a>
+            <div class="contain">
+                <a href="javascript:;">设计在线</a>|
+                <a href="javascript:;">收购融资</a>|
+                <a href="javascript:;">门户动态</a>|
+                <a href="javascript:;">搜索引擎</a>|
+                <a href="javascript:;">网络游戏</a>|
+                <a href="javascript:;">电子商务</a>|
+                <a href="javascript:;">广告传媒</a>|
+                <a href="javascript:;">厂商开发</a>
+
+            </div>
+
+        </li>
+        <li>
+            <a href="#">网络编程</a>
+            <div class="contain">
+                <a href="javascript:;">网络编程</a>|
+                <a href="javascript:;">收购融资</a>|
+                <a href="javascript:;">门户动态</a>|
+                <a href="javascript:;">搜索引擎</a>|
+                <a href="javascript:;">网络游戏</a>|
+                <a href="javascript:;">电子商务</a>|
+                <a href="javascript:;">广告传媒</a>|
+                <a href="javascript:;">厂商开发</a>
+
+            </div>
+
+        </li>
+        <li>
+            <a href="#">联盟资讯</a>
+            <div class="contain">
+                <a href="javascript:;">联盟资讯</a>|
+                <a href="javascript:;">收购融资</a>|
+                <a href="javascript:;">门户动态</a>|
+                <a href="javascript:;">搜索引擎</a>|
+                <a href="javascript:;">网络游戏</a>|
+                <a href="javascript:;">电子商务</a>|
+                <a href="javascript:;">广告传媒</a>|
+                <a href="javascript:;">厂商开发</a>
+
+            </div>
+
+        </li>
+
+
+    </ul>
+    <script>
+    var lis=document.getElementsByTagName("li");
+    var div=document.getElementsByTagName("div");
+        for(var i=0;i<lis.length;i++){
+            lis[i].index=i;
+            lis[i].onmouseover=function(){
+                div[this.index].style.display="block"
+
+
+            }
+            lis[i].onmouseout=function(){
+                div[this.index].style.display="none"
+            }
+
+        }
+
+
+    </script>
+</body>
+
+</html>

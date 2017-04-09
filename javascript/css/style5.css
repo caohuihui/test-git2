@@ -1,0 +1,23 @@
+body,p{margin:0;
+	padding:0;}
+body{color:#333;
+	font-size:12px;
+	line-height: 30px;
+	font-family:Tahoma;
+	padding-top:10px;}
+#outer{width:300px;
+	margin:0 auto;}
+p{margin-bottom:10px;}
+button{margin-right:5px;}
+label{width:5em;
+	display:inline-block;
+	text-align:right;}
+input{padding:3px;
+	font-family:inherit;
+	border:1px solid #ccc;}
+#div1{color:#fff;
+	width:180px;
+	height:180px;
+	background:#000;
+	margin:0 auto;
+	padding:10px;}

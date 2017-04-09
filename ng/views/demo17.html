@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<title>工厂</title>
+</head>
+<body ng-controller="test">
+	<form action="">
+			<input type="text" ng-model="search">
+	</form>
+	<div>
+		<ul>
+			<li ng-repeat="item in list| filter:search">
+				<span>{{item.name}}</span>
+				<span>今年是：{{item.age}}</span>
+			</li>
+		</ul>
+	</div>
+
+	<script src="../../../../node_modules/angular/angular.min.js"></script>
+	<script src="../js/app.js"></script>
+	<script src="../js/controller17.js"></script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body ng-controller="myCon">
+    <div>
+        选择省：
+        <select ng-model="your.province" ng-options="v.province for v in chinaCities" ng-change="selectedFirstValue(your.province)">
+            <option value="" ng-if="!chinaCities && !your.province">请选择</option>
+        </select>
+        选择市：
+        <select ng-model="your.city" ng-options="v.city for v in your.province.cities">
+            <option value="" ng-if="!your.city">请选择</option>
+        </select>
+        选择区：
+        <select ng-model="your.area" ng-options="v for v in your.city.areas">
+            <option value="" ng-if="!your.city">请选择</option>
+        </select>
+    </div>
+
+
+    <script src="../../../../node_modules/angular/angular.min.js"></script>
+    <script src="../js/app.js"></script>
+    <script src="../js/controller32.js"></script>
+</body>
+
+</html>

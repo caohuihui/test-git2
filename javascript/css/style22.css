@@ -1,0 +1,40 @@
+.box {
+    width: 490px;
+    height: 170px;
+    margin: 50px auto;
+    position: relative;
+    border: 1px solid #000;
+}
+
+.box ul {
+    list-style: none;
+}
+
+.box ul li {
+    display: none;
+}
+
+.box ul li.on {
+    display: block;
+}
+
+.box div {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+}
+
+.box div span {
+    width: 20px;
+    height: 20px;
+    background: #ccc;
+    float: left;
+    margin: 5px;
+    text-align: center;
+    line-height: 20px;
+    border-radius: 100%;
+}
+
+.box div span.bg {
+    background: #fff;
+}

@@ -1,0 +1,13 @@
+<div>
+<form action="">
+		<input type="text" ng-model="search">
+</form>
+	<div>
+		<ul>
+			<li ng-repeat="item in list| filter:search">
+				<span>{{item.name}}</span>
+				<span>今年是：{{item.age}}</span>
+			</li>
+		</ul>
+	</div>
+</div>

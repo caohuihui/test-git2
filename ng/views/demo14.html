@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style>
+	[ng-cloak]{
+		display: none;
+	}
+</style>
+<body ng-cloak>
+	
+	<ul ng-init="array=['mike','jack','mary','angular','web']">
+		<li ng-repeat="item in array">
+			{{item}}
+		</li>
+	</ul>
+	<script src="../../../../node_modules/angular/angular.min.js"></script>
+	<script src="../js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<div class="col-xs-12 movie-info img-rounded repeater">
+    <img align="left" class="img-thumbnail hand-behavior" ng-src="{{ obj.MovieImg }}" />
+    <ul>
+
+        <li class="movie-name">{{obj.MovieName}}</li>
+        <li>影片类型：{{obj.Genre_Main}}</li>
+        <li>国家地区：{{obj.Area}}</li>
+        <li>上映场次：{{obj.ShowCount}}</li>
+        <li>上映日期：</li>
+        <li>平均票价：￥{{obj.AvgPrice }}</li>
+        <li>场均人次：{{obj.AvpPeoPle }}人</li>
+        <li>{{searchInfo.movieBoxOffice.box + '：￥' + (obj.BoxOffice )}} 万</li>
+        <li>总票房&nbsp;&nbsp;&nbsp;：￥{{obj.SumBoxOffice}} 万</li>
+    </ul>
+</div>

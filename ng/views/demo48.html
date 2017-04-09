@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en" ng-app="myapp">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body ng-controller="myCtrl">
+    <div>
+        年：
+        <input type="text" ng-model="date.years"> 月：
+        <input type="text" ng-model="date.months"> 日：
+        <input type="text" ng-model="date.day">
+    </div>
+    <script src="../../../../node_modules/angular/angular.min.js"></script>
+    <script>
+        var app = angular.module('myapp', []);
+        app.controller("myCtrl", ["$scope", function ($scope) {
+            $scope.date = {};
+            var newDay = new Date();
+            $scope.date.years = newDay.getFullYear();
+            $scope.date.months = newDay.getMonth() + 1;
+            $scope.date.day = newDay.getDate() + 1;
+		}])
+    </script>
+</body>
+
+</html>

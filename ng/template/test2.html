@@ -1,0 +1,37 @@
+<div>
+	<p>代码页</p>
+	function route($routeProvider){
+	$routeProvider
+				.when("/",{
+					templateUrl:"../template/home11.html"
+				})
+				.when("/views2",{
+					templateUrl:"../template/main11.html"
+				})
+				.otherwise({ redirectTo: '/' });
+}
+function ctrl($scope){
+	$scope.list=[
+		{name: 'a乔乐', age:'25'},
+        {name: 'b周迅', age:'40'},
+        {name: 'c魏瑞', age:'25'},
+        {name: 'd展昭', age:'98'}
+	]
+
+	$scope.add=function(){
+
+		if($scope.name=='' || $scope.age==''){
+			return false;
+		}else{
+			$scope.list.push({
+				name:$scope.name,
+				age:$scope.age
+			})
+			$scope.name='';
+			$scope.age='';
+		}
+		
+	}
+}
+
+</div>

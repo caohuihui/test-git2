@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body ng-controller="myCon">
+    <div>
+        <form>
+            姓名:
+            <input type="text" ng-model="user.name" />
+            <br /> 电子邮箱:
+            <input type="email" ng-model="user.email" />
+            <br /> 性别:
+            <input type="radio" ng-model="user.sex" value="男" />男
+            <input type="radio" ng-model="user.sex" value="女" />女
+            <br />
+            <button ng-click="reset()">重置</button>
+            <button ng-click="update(user)">保存</button>
+        </form>
+        <p>正在设置 = {{user | json}}</p>
+        <p>保存完成 = {{master | json}}</p>
+    </div>
+
+
+    <script src="../../../../node_modules/angular/angular.min.js"></script>
+    <script src="../js/app.js"></script>
+    <script src="../js/controller38.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" ng-app='myApp'>
+<head>
+	<meta charset="UTF-8">
+	<title>多级下拉列表</title>
+</head>
+<body ng-controller="test">
+	<ul>
+		  <li>
+		    <input type="text" placeholder="copy me" ng-copy="copy=true" value="copy me" />
+		    <span ng-show="copy">复制成功 cppy: {{copy}}</span>
+		  </li>
+		  <li>
+		    <input type="text" placeholder="cut me" ng-cut="cut=true" value="cut me" />
+		    <span ng-show="cut">剪切成功 cut: {{cut}}</span>
+		  </li>
+		  <li>
+		    <input type="text" placeholder="paste me" ng-paste="paste=true" />
+		    <span ng-show="paste">粘贴成功 paste: {{paste}}</span>
+		  </li>
+	</ul>
+</body>
+</html>
+<script src="../../../../node_modules/angular/angular.min.js"></script>
+<script src="../js/app.js"></script>
+<script src="../js/controller1.js"></script>

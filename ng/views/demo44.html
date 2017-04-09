@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .sourcePre {
+            background: red;
+        }
+        
+        ul {
+            list-style: none;
+        }
+    </style>
+</head>
+
+<body ng-controller="myCtrl">
+    <ul>
+        <li>字符格式化：
+            <ol>
+                <li class="ng-binding">上下午标识：<span class="sourcePre">{{ today | date:'a' }}</span>today | date:'a'</li>
+                <li class="ng-binding">四位时区标识：<span class="sourcePre">{{ today | date:'Z' }}</span>today | date:'Z'</li>
+            </ol>
+        </li>
+    </ul>
+    <ul>
+        <li>自定义日期格式化：
+            <ol>
+                <li class="ng-binding">年月日：<span class="sourcePre">{{ today | date:'yyyy-MM-dd' }}</span>today | date:'yyyy-MM-dd'</li>
+                <li class="ng-binding">时分秒：<span class="sourcePre">{{ today | date:'HH:mm:ss.sss' }}</span>today | date:'HH:mm:ss.sss'</li>
+            </ol>
+        </li>
+    </ul>
+    <ul>
+        <li>小时格式化：
+            <ol>
+                <li class="ng-binding">24小时制数字小时：<span class="sourcePre">{{ today | date:'HH' }}</span>today | date:'HH'</li>
+                <li class="ng-binding">一天中的第几个小时：<span class="sourcePre">{{ today | date:'H' }}</span>today | date:'H'</li>
+                <li class="ng-binding">12小时制数字小时：<span class="sourcePre">{{ today | date:'hh' }}</span>today | date:'hh'</li>
+                <li class="ng-binding">上午或下午的第几个小时：<span class="sourcePre">{{ today | date:'h' }}</span>today | date:'h'</li>
+            </ol>
+        </li>
+    </ul>
+    <ul>
+        <li>分钟格式化：
+            <ol>
+                <li class="ng-binding">数字分钟数：<span class="sourcePre">{{ today | date:'mm' }}</span>today | date:'mm'</li>
+                <li class="ng-binding">一个小时中的第几分钟：<span class="sourcePre">{{ today | date:'m' }}</span>today | date:'m'</li>
+            </ol>
+        </li>
+    </ul>
+    <script src="../../../../node_modules/angular/angular.min.js"></script>
+    <script>
+        var myApp = angular.module('myApp', []);
+        myApp.controller('myCtrl', myCtrl);
+        myCtrl.$inject = ['$scope'];
+
+        function myCtrl($scope) {
+            $scope.today = new Date();
+
+        }
+    </script>
+</body>
+
+</html>

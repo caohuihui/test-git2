@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body ng-controller="myControl">
+	<form name="form">
+		<input type="password" name="password" ng-model="password" required placeholder="请输入密码">
+		<input type="password" name="pass" ng-model="pass" equal-to="password" placeholder="请再次输入密码">
+		<span ng-show="form.pass.$error.equalTo">两次密码不一致</span>
+	</form>
+	<script src="../../../../node_modules/angular/angular.min.js"></script>
+	<script src="../js/controller25.js"></script>
+</body>
+</html>

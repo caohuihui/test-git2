@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en" ng-app="myapp">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body ng-controller="myCtrl">
+    <div>
+        <select ng-model="city" value="city.id" ng-options="city.name for city in list">
+            <option value="">选择城市</option>
+        </select>
+        <span ng-bind-template="城市:{{city.name}}&nbsp;&nbsp;&nbsp;id：{{city.id}}"></span>
+    </div>
+    <script src="../../../../node_modules/angular/angular.min.js"></script>
+    <script>
+        var app = angular.module("myapp", [])
+        app.controller("myCtrl", function ($scope) {
+            $scope.list = [
+                {
+                    name: "北京",
+                    id: 1
+                },
+                {
+                    name: "上海",
+                    id: 2
+                },
+                {
+                    name: "广州",
+                    id: 3
+                },
+                {
+                    name: "沈阳",
+                    id: 4
+                },
+                {
+                    name: "大连",
+                    id: 5
+                }
+		];
+
+            for (var i in $scope.list) {
+                if ($scope.list[i].id == 2) {
+                    $scope.city = $scope.list[i];
+                    break;
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

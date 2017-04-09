@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../../../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/style45.css">
+</head>
+
+<body ng-controller="myCtrl">
+    <p class="text-center con_title">瑞昌屋檐咖啡馆欢迎您</p>
+    <div style="overflow: visible;min-width:1024px;">
+        <ul class="polaroids large-block-grid-4 small-block-grid-2">
+
+
+            <li ng-repeat="v in list" class="ng-scope">
+                <a href="javascript:;;" rel="coffee" title="{{v.title}}"><img data-bd-imgshare-binded="1" ng-src="{{v.img}}"></a>
+            </li>
+        </ul>
+    </div>
+    <div id="footer">
+        <div style="width: 960px;margin: 0 auto;">
+            <dl>
+                <dd>店名：瑞昌屋檐咖啡馆</dd>
+                <dd>电话：0792-4808 205</dd>
+                <dd>地址：瑞昌联盛国际a05(肯德基后面一楼)</dd>
+            </dl>
+        </div>
+    </div>
+    <script src="../../../../node_modules/angular/angular.min.js"></script>
+    <script>
+        var myApp = angular.module('myApp', []);
+        myApp.controller('myCtrl', myCtrl);
+        myCtrl.$inject = ['$scope', '$http'];
+
+        function myCtrl($scope, $http) {
+            $http({
+                url: "../data/data45.json"
+            }).success(function (data) {
+                $scope.list = data
+            })
+
+        }
+    </script>
+</body>
+
+</html>

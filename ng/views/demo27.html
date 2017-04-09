@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body ng-controller="myControl">
+	<div>
+		<select ng-model="model" ng-options="item for item in list">
+			<option value="">请选择</option>
+		</select>
+	</div>
+	<script src="../../../../../node_modules/angular/angular.min.js"></script>
+	<script>
+		var app=angular.module("myApp",[])
+		app.controller("myControl",function($scope){
+			 $scope.list = ["张三", "李四", "王五"];
+		})
+	</script>
+</body>
+</html>

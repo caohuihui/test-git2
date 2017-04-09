@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <div ng-controller="ParentCtrl">
+        <div ng-controller="SelfCtrl">
+            <a ng-click="click()">click me</a>
+            <div ng-controller="ChildCtrl"></div>
+        </div>
+        <div ng-controller="BroCtrl"></div>
+    </div>
+    <script src="../../../../node_modules/angular/angular.min.js"></script>
+    <script>
+        var app = angular.module('myApp', []);
+        app.controller('SelfCtrl', function ($scope) {
+            $scope.click = function () {
+                $scope.$broadcast('to-child', 'child');
+                $scope.$emit('to-parent', 'parent');
+            }
+        });
+
+        app.controller('ParentCtrl', function ($scope) {
+            $scope.$on('to-parent', function (event, data) {
+                console.log('ParentCtrl', data);
+            });
+            $scope.$on('to-child', function (event, data) {
+                console.log('ParentCtrl', data);
+            });
+        });
+
+        app.controller('ChildCtrl', function ($scope) {
+            $scope.$on('to-child', function (event, data) {
+                console.log('ChildCtrl', data);
+            });
+            $scope.$on('to-parent', function (event, data) {
+                console.log('ChildCtrl', data);
+            });
+        });
+
+        app.controller('BroCtrl', function ($scope) {
+            $scope.$on('to-parent', function (event, data) {
+                console.log('BroCtrl', data);
+            });
+            $scope.$on('to-child', function (event, data) {
+                console.log('BroCtrl', data);
+            });
+        });
+    </script>
+</body>
+
+</html>

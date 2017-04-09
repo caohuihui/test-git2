@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+	<style>
+		body,div{margin:0;padding:0;}
+		body{color:#fff;font:16px/1.5 \5fae\8f6f\96c5\9ed1;}
+		#count{width:300px;text-align:center;background:#1a1a1a;margin:10px auto;padding:20px 0;}
+		input{border:0;width:283px;height:50px;cursor:pointer;margin-top:20px;}
+		input.cancel{background-position:0 -50px;}
+		span{color:#000;width:80px;line-height:2;background:#fbfbfb;border:2px solid #b4b4b4;margin:0 10px;padding:0 10px;}
+	</style>
+</head>
+<body>
+	<div id="count">
+		<span>01</span>分钟<span>40</span>秒
+		<input type="button" value="启动" />
+	</div>
+	<script>
+
+	var count = document.getElementById("count");	
+	var input = count.getElementsByTagName("input")[0];
+	var timer = null;
+	
+	input.onclick = function (){
+		this.className == "" ? (timer = setInterval(updateTime, 1000), updateTime()) : (clearInterval(timer));
+		this.className = this.className == '' ? "cancel" : '';	
+	};
+	
+	function format(a){
+		return a.toString().replace(/^(\d)$/,'0$1')
+	}
+	
+	function updateTime (){
+		var spans = count.getElementsByTagName("span");
+		var end = spans[0].innerHTML.replace(/^0/,'') * 60 + parseInt(spans[1].innerHTML.replace(/^0/,''));
+		if(end <= 0){
+			clearInterval(timer);
+			return
+		}
+		end--;
+		spans[0].innerHTML = format(parseInt(end / 60));
+		end %= 60;
+		spans[1].innerHTML = format(parseInt(end));
+	}
+
+</script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .bg {
+            width: 800px;
+            height: 30px;
+            background-color: #428;
+        }
+        
+        .red_bg {
+            background: #ff110e;
+        }
+        
+        .black_bg {
+            background: black;
+        }
+        
+        .green_bg {
+            background: #4bff2a;
+        }
+    </style>
+</head>
+
+<body ng-controller="myCtrl">
+    <div>
+        复选背景色： 红色：
+        <input type="checkbox" ng-model="chooseRed"> 黑色：
+        <input type="checkbox" ng-model="chooseBlack"> 绿色：
+        <input type="checkbox" ng-model="chooseGreen">
+        <div class="bg" ng-class="{'red_bg': chooseRed, 'black_bg':chooseBlack, 'green_bg': chooseGreen}"></div>
+    </div>
+
+    <div>
+        单选背景色： 红色：
+        <input type="radio" ng-model="chooseBg" value="red_bg">　 黑色：
+        <input type="radio" ng-model="chooseBg" value="black_bg">　 绿色：
+        <input type="radio" ng-model="chooseBg" value="green_bg">
+        <div class="bg" ng-class="chooseBg"></div>
+    </div>
+    <div ng-class="dynamicClass" style="margin-top: 15px"></div>
+
+    <script src="../../../../node_modules/angular/angular.min.js"></script>
+    <script>
+        var myApp = angular.module('myApp', []);
+        myApp.controller('myCtrl', myCtrl);
+        myCtrl.$inject = ['$scope'];
+
+        function myCtrl($scope) {
+            $scope.dynamicClass = 'bg';
+
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link type="text/css" rel="stylesheet" href="../../../../node_modules/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../css/style50.css">
+    <script src="../../../../node_modules/jquery/dist/jquery.min.js"></script>
+
+</head>
+
+<body ng-controller="myCtrl">
+    <div class="container">
+        <div class="row">
+            <div class="search-child form-inline">
+                <span class="glyphicon glyphicon-user hand-behavior" ng-click="userKeyword = ''"></span>
+                <input type="text" class="form-control" placeholder="快速寻人搜索" ng-model="userKeyword" />
+                <span class="glyphicon glyphicon-search"></span>
+                <select class="form-control" ng-model="userSex">
+                    <option value="">性别</option>
+                    <option>男</option>
+                    <option>女</option>
+                </select>
+            </div>
+            <h1 class="text-center title">宝贝们，快回家吧，家人想你们了</h1>
+        </div>
+        <div class="row" ui-view></div>
+    </div>
+    <script src="../../../../node_modules/angular/angular.min.js"></script>
+    <script src="../../../../node_modules/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script src='../js/app50.js'></script>
+    <script src="../js/routers50.js"></script>
+    <script src="../js/controller50.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<title>配置</title>
+</head>
+<body ng-controller="test">
+	<div ng-view></div>	
+	<p>
+		<label for="">用户名：</label><input type="text" ng-model="name" placeholder="请输入名字...."><br>
+		<label for="">年  龄：</label><input type="text" ng-model="age" placeholder="请输入年龄...."><br>
+		<button ng-click="add()">添加</button><br>
+		<a href="#/">view 1</a>
+		<a href="#/view2">view 2</a>
+	</p>
+	<script src="../../../../node_modules/angular/angular.min.js"></script>
+	<script src="../../../../node_modules/angular-route/angular-route.min.js"></script>
+	<script src="../js/app1.js"></script>
+	<script src="../js/controller16.js"></script>
+</body>
+</html>

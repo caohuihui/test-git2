@@ -1,0 +1,79 @@
+<div class="row main-header">
+    <div class="col-xs-4 reset-padding">
+        <form class="form-inline">
+            <div class="form-group">
+                <div class="input-group">
+                    <div class="input-group-addon hand-behavior" ng-click="word = ''">
+                        <span class="glyphicon glyphicon-film" aria-hidden="true"></span>
+                    </div>
+                    <input type="text" class="form-control" placeholder="快速影片搜索" ng-model="word" />
+                    <div class="input-group-addon">
+                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <select class="form-control" ng-model="searchInfo.movieType" ng-options="v for v in searchInfo.movieTypeList">
+                        <option value="">类别</option>
+                    </select>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="col-xs-4">
+        <h1 class="text-center title">电影历史票房榜</h1>
+    </div>
+    <div class="col-xs-4 reset-padding">
+        <form name="boxOfficeForm" class="form-inline text-right">
+            <div class="form-group">
+                <div class="input-group">
+                    <div class="input-group-addon hand-behavior" ng-click="movieBoxOffice = ''">
+                        <span class="glyphicon glyphicon-sort-by-attributes-alt rotate180" aria-hidden="true"></span>
+                    </div>
+                    <select name="boxOfficeSel" class="form-control" ng-model="searchInfo.movieBoxOffice" ng-options="v.name for v in searchInfo.movieBoxOfficeList" ng-change="resetToDefault()">
+                        <option value="">选择票房</option>
+                    </select>
+                    <div class="input-group-addon hand-behavior" ng-click="loadMovieList()">
+                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-4 movie-info img-rounded repeater" ng-repeat="movie in list | filter :{MovieName : word} " ui-sref="pro({id:movie.IRank})">
+        <img align="left" class="img-thumbnail hand-behavior" ng-src="{{ movie.MovieImg }}" />
+        <ul>
+
+            <li class="movie-name">{{movie.MovieName}}</li>
+            <li>影片类型：{{movie.Genre_Main}}</li>
+            <li>国家地区：{{movie.Area}}</li>
+            <li>上映场次：{{movie.ShowCount}}</li>
+            <li>上映日期：</li>
+            <li>平均票价：￥{{movie.AvgPrice }}</li>
+            <li>场均人次：{{movie.AvpPeoPle }}人</li>
+            <li>{{searchInfo.movieBoxOffice.box + '：￥' + (movie.BoxOffice )}} 万</li>
+            <li>总票房&nbsp;&nbsp;&nbsp;：￥{{movie.SumBoxOffice}} 万</li>
+        </ul>
+        <span class="movie-index">{{$index+1}}</span>
+    </div>
+
+    <div class="input-group col-xs-4" ng-if="boxOfficeLog">
+        <textarea class="form-control" rows="11" ng-model="boxOfficeLog"></textarea>
+    </div>
+</div>
+
+<div id="currentMovieModal" class="modal fade text-center" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title movie-name">{{currentMovie.MovieName}}</h4>
+            </div>
+            <div class="modal-body">
+                <img ng-src="{{ currentMovie.movieImg }}" class="img-rounded" />
+            </div>
+        </div>
+    </div>
+</div>

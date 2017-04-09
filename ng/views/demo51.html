@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>	
+		/*var test=(function(a){
+			this.a=a;
+			return function(b){
+				return this.a+b
+			}
+		}(function(a,b){
+			return a;
+		}(1,2)))
+		console.log(test())*/
+		for(let i=0;i<10;i++){
+			setTimeout(function(){
+				console.log(i)
+			},3000)
+		}
+	</script>
+</body>
+</html>

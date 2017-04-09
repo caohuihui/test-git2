@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<title>ng-class</title>
+	<style>
+	  
+  </style>
+
+</head>
+<body ng-controller="test">
+	<input type="text" ng-model="keyword" placeholder="输入关键字">
+	<ul>
+		<li ng-repeat="item in arr | filter:keyword">
+			{{ item | lowercase }}
+		</li>
+	</ul>
+</body>
+</html>
+<script src="../../../../node_modules/angular/angular.min.js"></script>
+<script src="../js/app.js"></script>
+<script src="../js/controller1.js"></script>

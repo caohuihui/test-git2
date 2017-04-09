@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body ng-controller="myCon">
+    <div>
+        选择以下人物：
+        <select ng-model="selectedPeople" ng-options="v.name for v in people"></select>
+        ng-repeat解决首项空白：
+        <select>
+            <option ng-repeat="v in people">{{ v.name }}</option>
+        </select>
+        ng-options解决首项空白：
+        <select ng-model="selectedYourPeople" ng-options="v.name as v.name for v in people"></select>
+    </div>
+
+
+
+    <script src="../../../../node_modules/angular/angular.min.js"></script>
+    <script src="../js/app.js"></script>
+    <script src="../js/controller22.js"></script>
+</body>

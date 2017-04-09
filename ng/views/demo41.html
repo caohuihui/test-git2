@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body ng-controller="myCtrl">
+    <div>
+        计算表达式：
+        <input ng-model="expr" type="text" placeholder="Enter an expression" />
+
+        <div>{{parsedExpr}}</div>
+    </div>
+    <script src="../../../../node_modules/angular/angular.min.js"></script>
+    <script>
+        var myApp = angular.module('myApp', []);
+        myApp.controller('myCtrl', myCtrl);
+        myCtrl.$inject = ['$scope', '$parse'];
+
+        function myCtrl($scope, $parse) {
+            $scope.$watch('expr', function (newVal, oldVal, scope) {
+                if (newVal !== oldVal) {
+                    var parseFun = $parse(newVal);
+                    scope.parsedExpr = parseFun(scope);
+                }
+            });
+
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<title>排序orderBy</title>
+	<style>
+	[ng-cloak]{
+		display: none;
+	}
+	tr th{
+		width: 100px;
+		line-height: 25px;
+		border:1px solid #ccc;
+	}
+	tr td{
+		width: 100px;
+		line-height: 25px;
+		border:1px solid #ccc;
+		text-align: center;
+	}
+	.bg{
+		width: 0;
+		height: 0;
+		display: inline-block;
+		border-left:5px solid transparent;
+		border-right: 5px solid transparent;
+		border-top:8px solid #000;
+		margin-left: 3px;
+
+	}
+	</style>
+</head>
+<body ng-cloak ng-controller="text">
+	<table>
+		<tr>
+			<th ng-click="num('$index+1')">名次<span class="bg"></span></th>
+			<th ng-click="num('team')">队名<span class="bg"></span></th>
+			<th ng-click="num('score')">积分<span class="bg"></span></th>
+			<th ng-click="num('city')">场次<span class="bg"></span></th>
+			<th ng-click="num('num1')">胜<span class="bg"></span></th>
+			<th ng-click="num('num2')">平<span class="bg"></span></th>
+			<th ng-click="num('num3')">负<span class="bg"></span></th>
+			<th ng-click="num('num4')">进球<span class="bg"></span></th>
+		</tr>
+		<tr ng-repeat="item in list | orderBy:sort:con">
+			<td>{{$index+1}}</td>
+			<td>{{item.team}}</td>
+			<td>{{item.score}}</td>
+			<td>{{item.city}}</td>
+			<td>{{item.num1}}</td>
+			<td>{{item.num2}}</td>
+			<td>{{item.num3}}</td>
+			<td>{{item.num4}}</td>
+		</tr>
+	</table>
+
+	<script src="../../../../node_modules/angular/angular.min.js"></script>
+	<script src="../js/app.js"></script>
+	<script src="../js/controller13.js"></script>
+</body>
+</html>

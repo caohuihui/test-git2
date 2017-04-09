@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body ng-controller="myCon">
+    <div>
+        <div>
+            选择省：
+            <select ng-model="your.province" ng-options="v.province for v in chinaCities">
+                <option value="">请选择</option>
+            </select>
+            选择市：
+            <select ng-model="your.city" ng-options="v for v in your.province.cities">
+                <option value="">请选择</option>
+            </select>
+        </div>
+        <hr/>
+        <div>
+            一次改进版：
+            <select ng-model="your.province" ng-options="v.province for v in chinaCities" ng-change="selectedFirstValue(your.province)">
+                <option value="">请选择</option>
+            </select>
+            选择市：
+            <select ng-model="your.city" ng-options="v for v in your.province.cities">
+                <option value="">请选择</option>
+            </select>
+        </div>
+        <hr/>
+        <div>
+            二次改进版：
+            <select ng-model="your.province" ng-options="v.province for v in chinaCities" ng-change="selectedFirstValue(your.province)">
+                <option value="" ng-if="!your.province">请选择</option>
+            </select>
+            选择市：
+            <select ng-model="your.city" ng-options="v for v in your.province.cities">
+                <option value="" ng-if="!your.city">请选择</option>
+            </select>
+        </div>
+        <hr/>
+        <div>
+            三次改进版：
+            <select ng-model="your.province" ng-options="v.province for v in chinaCities" ng-change="selectedFirstValue(your.province)">
+                <option value="" ng-if="!chinaCities && !your.province">请选择</option>
+            </select>
+            选择市：
+            <select ng-model="your.city" ng-options="v for v in your.province.cities">
+                <option value="" ng-if="!your.city">请选择</option>
+            </select>
+        </div>
+        <hr/>
+        <div>
+            四次改进版：
+            <select ng-model="your.province" ng-options="v.province for v in chinaCities" ng-change="selectedFirstValue(your.province)">
+                <option value="" ng-if="!chinaCities && !your.province">请选择</option>
+            </select>
+            选择市：
+            <select ng-model="your.city" ng-options="v for v in your.province.cities">
+                <option value="" ng-if="!your.city">请选择</option>
+            </select>
+        </div>
+        <hr/>
+
+    </div>
+
+
+
+
+    <script src="../../../../node_modules/angular/angular.min.js"></script>
+    <script src="../js/app.js"></script>
+    <script src="../js/controller33.js"></script>
+</body>
+
+</html>

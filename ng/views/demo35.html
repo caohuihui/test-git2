@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../../../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <style>
+        .align-top {
+            vertical-align: top
+        }
+        
+        .city-container .content {
+            border: 1px solid #d7dadb;
+            background-color: #ffffff;
+        }
+        
+        .city-container .content .big-title {
+            font-size: 20px;
+            margin: 10px 0px 10px 0;
+            padding-bottom: 6px;
+            border-bottom: 1px solid #d7dadb;
+        }
+        
+        .city-container .content .name-header {
+            margin: 15px;
+        }
+        
+        .city-container .content .name-header .name {
+            width: 20%;
+            padding: 18px;
+            border: 1px solid #d7dadb;
+            margin-right: -1px;
+            margin-bottom: -1px;
+            cursor: pointer;
+        }
+        
+        .city-container .content .name-header .name:hover {
+            background: #f3f4f8;
+        }
+        
+        .city-container .content .name-header .name.active {
+            color: #38a884;
+            background: #f3f4f8;
+        }
+        
+        .city-container .content .name-card {
+            margin: 0 0 20px;
+            height: 350px;
+        }
+        
+        .city-container .content .name-card .desc {
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body ng-controller="myCon">
+
+    <div class="row">
+        <div class="content">
+            <div class="col-xs-12 big-title">城市列表 <span class="badge align-top" ng-bind="cityList.length"></span></div>
+            <div class="row name-header">
+                <div class="col-xs-2 name text-center" ng-class="{active: curInfo == v}" ng-repeat="v in cityList" ng-bind="v.city" ng-click="switchInfo(v)"></div>
+            </div>
+            <div class="row name-card">
+                <div class="col-xs-12">
+                    <h1 ng-bind="curInfo.city + '简介：'"></h1>
+                    <div class="desc" ng-bind-html="trustHtml(curInfo.description)"></div>
+                </div>
+            </div>
+
+            <div>
+                <ul class="nav nav-pills" role="tablist">
+                    <li role="presentation" ng-repeat="v in cityList">
+                        <a href="" ng-bind="v.city" ng-click="switchInfo(v)"></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="../../../../node_modules/angular/angular.min.js"></script>
+    <script src="../js/app.js"></script>
+    <script src="../js/controller35.js"></script>
+</body>
+
+</html>

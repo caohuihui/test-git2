@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body ng-controller="test">
+	<h3>一、第一种过滤器</h3>
+	<p>原有数据：{{ list[0].name }}</p>
+	<p>过滤数据：{{ list[0].name | filter1 }}</p>
+	<h3>二、第二种参数过滤器</h3>
+	<p>原有数据：{{ list[1].name }}</p>
+	<p>过滤数据：{{ list[1].name | filter2 }}</p>
+	<h3>三、第三种数组过滤器：</h3>
+	<p>原有数据：{{ list[2].name }}</p>
+	<p ng-repeat="word in ['a乔乐','b周迅','c赵薇','d黄晓明','e林心如']">{{ word }}</p>
+	<p ng-repeat="word in ['a乔乐','b周迅','c赵薇','d黄晓明','e林心如'] | filter3">{{ word }}</p>
+	<h3>四、第四种首字母大写过滤器：</h3>
+	<p>原有数据：a乔乐 b周迅 c赵薇 d黄晓明 e林心如</p>
+	<p>过滤数据：{{ list | filter4 }}</p>
+	<script src='../../../../node_modules/angular/angular.min.js'></script>
+	<script src="../js/app.js"></script>
+	<script src="../js/controller2.js"></script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+.box {
+    text-align: center;
+    width: 200px;
+    margin: 50px auto;
+    border: 1px solid #000;
+    overflow: hidden;
+}
+
+.box ol {
+    display: none;
+}
+
+.box ol li {
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    float: left;
+    list-style: none;
+    background: #eee;
+}
+
+.box ol li:hover {
+    background: #ccc;
+}
+
+.box p {
+    background: url(../images/ico.gif) 180px 13px no-repeat;
+    line-height: 30px;
+}
+
+.box p.up {
+    background: url(../images/ico.gif) 180px -15px no-repeat;
+}

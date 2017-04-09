@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .sourcePre {
+            background: red;
+        }
+        
+        ul {
+            list-style: none;
+        }
+    </style>
+</head>
+
+<body ng-controller="myCtrl">
+    <ul>
+        <li>本地化日期格式化：
+            <ol>
+                <li class="ng-binding"><span class="sourcePre">{{ today | date:'medium' }}</span> today | date:'medium' </li>
+                <li class="ng-binding"><span class="sourcePre">{{ today | date:'short' }}</span>today | date:'short' </li>
+                <li class="ng-binding"><span class="sourcePre">{{ today | date:'fullDate' }}</span> today | date:'fullDate' </li>
+                <li class="ng-binding"><span class="sourcePre">{{ today | date:'longDate' }}</span> today | date:'longDate' </li>
+                <li class="ng-binding"><span class="sourcePre">{{ today | date:'mediumDate' }}</span> today | date:'mediumDate' </li>
+                <li class="ng-binding"><span class="sourcePre">{{ today | date:'shortDate' }}</span> today | date:'shortDate' </li>
+                <li class="ng-binding"><span class="sourcePre">{{ today | date:'mediumTime' }}</span>today | date:'mediumTime' </li>
+                <li class="ng-binding"><span class="sourcePre">{{ today | date:'shortTime' }}</span> today | date:'shortTime' </li>
+            </ol>
+        </li>
+    </ul>
+    <ul>
+        <li>年份格式化：
+            <ol>
+                <li class="ng-binding">四位年份：<span class="sourcePre">{{ today | date:'yyyy' }}</span>today | date:'yyyy'</li>
+                <li class="ng-binding">两位年份：<span class="sourcePre">{{ today | date:'yy' }}</span>today | date:'yy'</li>
+                <li class="ng-binding">一位年份：<span class="sourcePre">{{ today | date:'y' }}</span>today | date:'y'</li>
+            </ol>
+        </li>
+    </ul>
+    <ul>
+        <li>月份格式化：
+            <ol>
+                <li class="ng-binding">英文月份：<span class="sourcePre">{{ today | date:'MMMM' }}</span>today | date:'MMMM' </li>
+                <li class="ng-binding">英文月份简写：<span class="sourcePre">{{ today | date:'MMM' }}</span>today | date:'MMM' </li>
+                <li class="ng-binding">两位数字月份：<span class="sourcePre">{{ today | date:'MM' }})</span>today | date:'MM'</li>
+                <li class="ng-binding">一年中的第几个月份：<span class="sourcePre">({{ today | date:'M' }}</span>today | date:'M' </li>
+            </ol>
+        </li>
+    </ul>
+    <script src="../../../../node_modules/angular/angular.min.js"></script>
+    <script>
+        var myApp = angular.module('myApp', []);
+        myApp.controller('myCtrl', myCtrl);
+        myCtrl.$inject = ['$scope'];
+
+        function myCtrl($scope) {
+            $scope.today = new Date();
+
+        }
+    </script>
+</body>
+
+</html>

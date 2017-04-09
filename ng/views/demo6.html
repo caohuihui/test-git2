@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body ng-controller="test">
+	<u>
+		<li>
+			<label for="user">用户：</label>
+			<input type="text" id="user" ng-model="user">
+		</li>
+		<li>
+			<label for="pwd">密码：</label>
+			<input type="text" id="pwd" ng-model="pwd">
+		</li>
+		<li>
+			<label>性别：</label>
+			<input type="radio" id="sex" name="sex" ng-model="sex" value="男">男
+			<input type="radio" id="sex" name="sex" ng-model="sex" value="女">女
+		</li>
+		<li>
+			<label>特长：</label>
+			<input type="checkbox" ng-model="like1" ng-true-value="'唱歌'" ng-false-value="''">唱歌
+			<input type="checkbox" ng-model="like2" ng-true-value="'跳舞'" ng-false-value="''">跳舞
+			<input type="checkbox" ng-model="like3" ng-true-value="'绘画'" ng-false-value="''">绘画
+		</li>
+	</ul>
+	<div>
+		<p>用户名：{{ user }}</p>
+		<p>密码：{{ pwd }}</p>
+		<p>性别：{{ sex }}</p>
+		<p>特长：{{ like1 }}{{ like2 }}{{ like3 }}</p>
+	</div>
+</body>
+</html>
+<script src="../../../../node_modules/angular/angular.min.js"></script>
+<script src="../js/app.js"></script>
+<script src="../js/controller2.js"></script>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body ng-controller="myCon">
+    <table width="100%">
+
+        <tr ng-repeat="v in list | pageStartFrom: curPage * pageSize | limitTo: pageSize">
+            <td ng-bind="v.coRemark"></td>
+            <td ng-bind="v.coCommandcode"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <button ng-click="curPage = 0" ng-disabled="curPage == 0">首页</button>
+                <button ng-click="curPage = curPage - 1" ng-disabled="curPage <= 0">上一页</button>
+                当前第{{curPage + 1}}页
+                <button ng-click="curPage = curPage + 1" ng-disabled="curPage >= pageCount">下一页</button>
+                <button ng-click="curPage = pageCount" ng-disabled="curPage == pageCount">尾页</button>
+            </td>
+        </tr>
+    </table>
+
+
+    <script src="../../../../node_modules/angular/angular.min.js"></script>
+    <script src="../js/json.js"></script>
+    <script src="../js/app.js"></script>
+    <script src="../js/controller30.js"></script>
+</body>
+
+</html>

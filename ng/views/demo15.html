@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<title>ng-class</title>
+	<style>
+	[ng-cloak]{
+		display: none;
+	}
+	.big-bg {width: 800px; height: 30px; background-color: #ccc; }
+	.red{background: #ff110e;}
+    .blue{background: #2d3bff;}
+    .green{background: #4bff2a;}
+
+	</style>
+</head>
+<body ng-cloak>
+	<p>
+		
+		<span>选择基本的颜色</span>
+		<label for="">红色</label>
+		<input type="checkbox" ng-model="Red">
+		<label for="">蓝色</label>
+		<input type="checkbox" ng-model="Blue">
+		<label for="">绿色</label>
+		<input type="checkbox" ng-model="Green">
+	</p>
+	 <div class="big-bg" ng-class="{'red': Red, 'blue': Blue, 'green':Green}"></div>
+
+
+
+	<p>
+		<span>选择基本的颜色</span>
+		<label for="">红色</label>
+		<input type="radio" ng-model="chooseBg" value="red">
+		<label for="">蓝色</label>
+		<input type="radio" ng-model="chooseBg" value="blue">
+		<label for="">绿色</label>
+		<input type="radio" ng-model="chooseBg" value="green">
+	</p>
+	 <div class="big-bg" ng-class="chooseBg"></div>
+
+	<script src="../../../../node_modules/angular/angular.min.js"></script>
+	<script src="../js/app.js"></script>
+</body>
+</html>

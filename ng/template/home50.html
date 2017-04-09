@@ -1,0 +1,10 @@
+<div class="col-xs-4 child-info img-rounded repeater" ng-repeat="child in children | filter: userKeyword | filter: {sex: userSex}" ui-sref="pro({id:child.id})">
+    <img align="left" class="img-thumbnail hand-behavior" ng-src="{{ child.child_pic}}" />
+    <ul>
+        <li class="child-name">姓名：{{child.name}}</li>
+        <li>性别：{{child.sex}}</li>
+        <li>出生日期：{{child.birth_time}}</li>
+        <li>失踪时间：{{child.lost_time}}</li>
+        <li>失踪地点：{{child.lost_place}}</li>
+    </ul>
+</div>

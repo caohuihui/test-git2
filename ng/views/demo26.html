@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div ng-controller="ParentCtrl" style="width:300px;height:300px;background:red">					<!--父级-->
+		<div ng-controller="SelfCtrl" style="width:200px;height:200px;background:yellow">					<!--自己-->
+			<a ng-click="click()">click me</a>
+			<div ng-controller="ChildCtrl" style="width:100px;height:100px;background:green"></div>		<!--子级-->
+		</div>
+		<div ng-controller="BroCtrl"></div>				<!--平级-->
+	</div>
+	<script src="../../../../node_modules/angular/angular.min.js"></script>
+	<script src="../js/controller26.js"></script>
+</body>
+</html>
